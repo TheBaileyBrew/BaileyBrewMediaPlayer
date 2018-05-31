@@ -2,18 +2,72 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:clipToPadding="false"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
     tools:context=".MainActivity">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Media Player"
+    <ImageView
+        android:id="@+id/backsplash_logo"
+        android:alpha="0.5"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/baileybrewmediafade"/>
 
-    <!-- Insert Recycler View with Array List of genres? -->
+    <!-- Insert Horizontal Spinner -->
+    <com.yarolegovich.discretescrollview.DiscreteScrollView
+        android:id="@+id/all_music_scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/scrollview_top_margin"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:dsv_orientation="horizontal"/>
+
+    <TextView
+        android:id="@+id/artist_name_display"
+        style="@style/SongTheme"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="6dp"
+        android:paddingRight="6dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/all_music_scroll_view"
+        android:textSize="52sp"
+        android:textColor="@color/colorText"
+        android:fontFamily="@font/no_reference"
+        android:text="Artist Name Here"/>
+
+    <TextView
+        android:id="@+id/song_name_display"
+        style="@style/SongTheme"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:paddingLeft="6dp"
+        android:paddingRight="6dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/artist_name_display"
+        android:textSize="40sp"
+        android:textColor="@color/colorPrimaryText"
+        android:fontFamily="@font/no_reference"
+        android:text="Song Name Here"/>
+
+    <it.sephiroth.android.library.bottomnavigation.BottomNavigation
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="125dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:bbn_entries="@menu/navigation"
+        />
+
+
 
 </android.support.constraint.ConstraintLayout>
